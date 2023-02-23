@@ -1,0 +1,22 @@
+body {
+    display: flex;
+    justify-content: center;
+}
+#calculator {
+    margin: 35px;
+    display: flex;
+    background-color: rgb(221, 221, 221);
+    border: 10px solid rgb(75, 75, 75);
+    border-radius: 15px;
+    width: 350px;
+    height: 500px;
+    flex-direction: column;
+    gap: 15px;
+}
+
+#display {
+    height: 100px;
+    width: 350px;
+    border-bottom: 5px solid rgb(75, 75, 75);
+    background-color: rgb(177, 211, 177);
+}

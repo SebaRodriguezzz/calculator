@@ -1,35 +1,11 @@
-    const add = ((...args) => {
-        let result = args[0];
-        for (let i = 1; i < args.length; i++) {
-            result += parseFloat(args[i]);
-            
-        }
-        return result;
-    });
+    const add = ((a, b) => a + b);
 
-    const subtract = ((...args) => {
-        let result = args[0];
-        for (let i = 1; i < args.length; i++) {
-            result -= parseFloat(args[i]);
-            
-        }
-        return result;
-    })
+    const subtract = ((a, b) => a - b);
 
-    const multiply = ((...args) => {
-        let result = args[0];
-        for (let i = 1; i < args.length; i++) {
-            result *= parseFloat(args[i]);
-            
-        }
-        return result;
-    })
+    const multiply = ((a, b) => a * b);
 
-    const divide = ((...args) => {
-        let result = args[0];
-        for (let i = 1; i < args.length; i++) {
-            result /= parseFloat(args[i]);
-            
-        }
-        return result;
-    })
+    const divide = ((a, b) => a / b);
+
+    const operate = ((operator, a, b) => operator(a, b));
+
+    
