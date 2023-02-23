@@ -8,15 +8,61 @@ body {
     background-color: rgb(221, 221, 221);
     border: 10px solid rgb(75, 75, 75);
     border-radius: 15px;
-    width: 350px;
+    width: 320px;
     height: 500px;
     flex-direction: column;
-    gap: 15px;
 }
 
 #display {
+    display: flex;
     height: 100px;
-    width: 350px;
+    width: 320px;
+    flex: 0 0 auto;
     border-bottom: 5px solid rgb(75, 75, 75);
     background-color: rgb(177, 211, 177);
+    align-items: center;
+    justify-content: flex-end;
+}
+
+#display .text{
+    margin: 10px;
+    font-size: 48px;
+}
+
+.buttons{
+    margin-top: 14px;
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+}
+
+.left-buttons, .right-column {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.left-buttons{
+    width: 216px;
+}
+
+.right-column {
+    flex-direction: column;
+}
+
+.default, .ce, .equals, .zero{
+    width: 64px;
+    height: 64px;
+}
+
+.ce {
+
+}
+
+.equals {
+    flex-grow: 1;
+}
+
+.zero {
+    flex-grow: 1;
 }
