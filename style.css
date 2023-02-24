@@ -1,16 +1,23 @@
+@import url('https://fonts.googleapis.com/css2?family=Audiowide&display=swap');
+
 body {
+    font-family: Helvetica, sans-serif;
     display: flex;
     justify-content: center;
 }
 #calculator {
     margin: 35px;
     display: flex;
-    background-color: rgb(221, 221, 221);
-    border: 10px solid rgb(75, 75, 75);
+    background: rgb(129,129,129);
+    background: linear-gradient(0deg, rgb(180, 180, 180) 0%, rgba(221,221,221,1) 100%);
+    border: 8px solid rgb(75, 75, 75);
     border-radius: 15px;
     width: 320px;
     height: 500px;
     flex-direction: column;
+    box-shadow: 10px 9px 31px 0px rgba(0,0,0,0.24);
+    -webkit-box-shadow: 10px 9px 31px 0px rgba(0,0,0,0.24);
+    -moz-box-shadow: 10px 9px 31px 0px rgba(0,0,0,0.24);
 }
 
 #display {
@@ -19,13 +26,25 @@ body {
     width: 320px;
     flex: 0 0 auto;
     border-bottom: 5px solid rgb(75, 75, 75);
-    background-color: rgb(177, 211, 177);
+    background: rgb(177,211,177);
+    background: radial-gradient(circle, rgba(177,211,177,1) 0%, rgba(160,198,160,1) 100%);
     align-items: center;
-    justify-content: flex-end;
+    justify-content: center;
+    align-items: end;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    flex-direction: column;
 }
 
-#display .text{
-    margin: 10px;
+#display .numbers{
+    font-family: 'Audiowide', sans-serif;
+    margin: 0px 10px 0px 0px;
+    font-size: 24px;
+}
+
+#display .result {
+    font-family: 'Audiowide', sans-serif;
+    margin: 0px 10px 0px 0px;
     font-size: 48px;
 }
 
@@ -53,6 +72,14 @@ body {
 .default, .ce, .equals, .zero{
     width: 64px;
     height: 64px;
+    background-color: rgb(100, 100, 100);
+    color: rgb(230, 230, 230);
+    font-size: 28px;
+    border-radius: 20px;
+    border: 0px;
+    box-shadow: 48px -52px 54px -89px rgba(0,0,0,0.75) inset;
+    -webkit-box-shadow: 48px -52px 54px -89px rgba(0,0,0,0.75) inset;
+    -moz-box-shadow: 48px -52px 54px -89px rgba(0,0,0,0.75) inset;
 }
 
 .ce {
