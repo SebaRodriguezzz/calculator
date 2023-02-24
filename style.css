@@ -8,7 +8,6 @@ body {
 #calculator {
     margin: 35px;
     display: flex;
-    background: rgb(129,129,129);
     background: linear-gradient(0deg, rgb(180, 180, 180) 0%, rgba(221,221,221,1) 100%);
     border: 8px solid rgb(75, 75, 75);
     border-radius: 15px;
@@ -21,12 +20,11 @@ body {
 }
 
 #display {
+    font-family: 'Audiowide', sans-serif;
     display: flex;
     height: 100px;
     width: 320px;
-    flex: 0 0 auto;
     border-bottom: 5px solid rgb(75, 75, 75);
-    background: rgb(177,211,177);
     background: radial-gradient(circle, rgba(177,211,177,1) 0%, rgba(160,198,160,1) 100%);
     align-items: center;
     justify-content: center;
@@ -37,14 +35,12 @@ body {
 }
 
 #display .numbers{
-    font-family: 'Audiowide', sans-serif;
     margin: 0px 10px 0px 0px;
     font-size: 24px;
 }
 
 #display .result {
-    font-family: 'Audiowide', sans-serif;
-    margin: 0px 10px 0px 0px;
+    margin: -8px 10px 0px 0px;
     font-size: 48px;
 }
 
