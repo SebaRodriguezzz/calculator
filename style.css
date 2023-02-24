@@ -65,7 +65,7 @@ body {
     flex-direction: column;
 }
 
-.default, .ce, .equals, .zero{
+.number, .default, .ce, .equals, .zero{
     width: 64px;
     height: 64px;
     background-color: rgb(100, 100, 100);
