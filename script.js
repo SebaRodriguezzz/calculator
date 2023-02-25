@@ -6,7 +6,7 @@
 
     const divide = ((a, b) => parseInt(a) / parseInt(b));
 
-    const operate = ((operator, a, b) => operator(a, b));
+    const operate = ((operator, a, b) => {operator(a, b)});
 
     const numberButtons = document.querySelectorAll('.number');
     const numberDisplay = document.querySelector('.numbers');
@@ -21,16 +21,42 @@
     const point = document.querySelector('.point');
 
 
-    let currentNumber = '';
+    let firstNumber = '';
+    let secondNumber = '';
+    let result = '0';
 
-    numberButtons.forEach(number => 
-        number.addEventListener('click', (e) => {
-            currentNumber = e.target.textContent;
-            numberDisplay.textContent += currentNumber;
-        }));
+    if (firstNumber === ''){
+        numberButtons.forEach(number => 
+            number.addEventListener('click', addListenerFirst));
+    };
+
+    function addListenerFirst(e) {
+        firstNumber += e.target.textContent;
+        numberDisplay.textContent += e.target.textContent;
+    }
+
+    function addListenerSecond(e) {
+        secondNumber += e.target.textContent;
+        numberDisplay.textContent += e.target.textContent;
+    }
+
+    function removeListenerFirst(){
+        numberButtons.forEach(number => 
+            number.removeEventListener('click', addListenerFirst));
+    }
+
+    plus.addEventListener('click', () => {
+        removeListenerFirst();
+        numberDisplay.textContent += ' + ';
+        if (secondNumber === ''){
+            numberButtons.forEach(number => 
+                number.addEventListener('click', addListenerSecond));
+        }
+    });
 
     clear.addEventListener('click', () => {
         numberDisplay.textContent = '\u00A0';
         resultDisplay.textContent = '0';
-        currentNumber = '';
+        firstNumber = '';
+        secondNumber = '';
     });
