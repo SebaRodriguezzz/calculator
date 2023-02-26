@@ -49,99 +49,78 @@ function removeListenerSecond() {
         number.removeEventListener('click', addListenerSecond));
 }
 
-plus.addEventListener('click', () => {
-    removeListenerFirst();
-    numberDisplay.textContent += ' + ';
+function handleFirstOperation() {
     if (firstOperation === false) {
-        firstNumber = result;
+        if (result != ''){
+            firstNumber = result;
+        }
     } else {
         firstOperation = false;
     }
+}
 
-    numberButtons.forEach(number =>
-        number.addEventListener('click', addListenerSecond));
+function handleResult(operator) {
+    result = (operate(operator, firstNumber, secondNumber)).toString();
+    resultDisplay.textContent = result;
+    removeListenerSecond();
+}
 
+function handleConcatenated(){
+    if (firstNumber === result) {
+        numberDisplay.textContent = result;
+    }
+}
 
-    equals.addEventListener('click', () => {
-        result = (operate(add, firstNumber, secondNumber)).toString();
-        resultDisplay.textContent = result;
-        removeListenerSecond();
-    });
-
+plus.addEventListener('click', () => {
+    removeListenerFirst();
+    handleFirstOperation();
+    handleConcatenated();
+    numberDisplay.textContent += ' + ';
+    numberButtons.forEach(number => number.addEventListener('click', addListenerSecond));
+    equals.addEventListener('click', () => handleResult(add));
     if (secondNumber != '') {
         secondNumber = '';
         firstNumber = result;
     }
-
 });
 
 minus.addEventListener('click', () => {
     removeListenerFirst();
+    handleFirstOperation();
+    handleConcatenated();
     numberDisplay.textContent += ' - ';
-    if (firstOperation === false) {
-        firstNumber = result;
-    } else {
-        firstOperation = false;
-    }
-    numberButtons.forEach(number =>
-        number.addEventListener('click', addListenerSecond));
-
-    equals.addEventListener('click', () => {
-        result = (operate(subtract, firstNumber, secondNumber)).toString();
-        resultDisplay.textContent = result;
-    });
-
+    numberButtons.forEach(number => number.addEventListener('click', addListenerSecond));
+    equals.addEventListener('click', () => handleResult(subtract));
     if (secondNumber != '') {
         secondNumber = '';
         firstNumber = result;
     }
-
 });
 
 slash.addEventListener('click', () => {
     removeListenerFirst();
+    handleFirstOperation();
+    handleConcatenated();
     numberDisplay.textContent += ' / ';
-    if (firstOperation === false) {
-        firstNumber = result;
-    } else {
-        firstOperation = false;
-    }
-    numberButtons.forEach(number =>
-        number.addEventListener('click', addListenerSecond));
-
-    equals.addEventListener('click', () => {
-        result = (operate(divide, firstNumber, secondNumber)).toString();
-        resultDisplay.textContent = result;
-    });
-
+    numberButtons.forEach(number => number.addEventListener('click', addListenerSecond));
+    equals.addEventListener('click', () => handleResult(divide));
     if (secondNumber != '') {
         secondNumber = '';
         firstNumber = result;
     }
-
 });
 
 multiplier.addEventListener('click', () => {
     removeListenerFirst();
+    handleFirstOperation();
+    handleConcatenated();
     numberDisplay.textContent += ' * ';
-    if (firstOperation === false) {
-        firstNumber = result;
-    } else {
-        firstOperation = false;
-    }
-    numberButtons.forEach(number =>
-        number.addEventListener('click', addListenerSecond));
-
-    equals.addEventListener('click', () => {
-        result = (operate(multiply, firstNumber, secondNumber)).toString();
-        resultDisplay.textContent = result;
-    });
-
+    numberButtons.forEach(number => number.addEventListener('click', addListenerSecond));
+    equals.addEventListener('click', () => handleResult(multiply));
     if (secondNumber != '') {
         secondNumber = '';
         firstNumber = result;
     }
-
 });
 
 point.addEventListener('click', () => {
@@ -159,4 +138,7 @@ clear.addEventListener('click', () => {
     resultDisplay.textContent = '0';
     firstNumber = '';
     secondNumber = '';
+    result = '';
+    numberButtons.forEach(number =>
+        number.addEventListener('click', addListenerFirst));
 });
