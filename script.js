@@ -97,6 +97,52 @@ minus.addEventListener('click', () => {
 
 });
 
+slash.addEventListener('click', () => {
+    removeListenerFirst();
+    numberDisplay.textContent += ' / ';
+    if (firstOperation === false) {
+        firstNumber = result;
+    } else {
+        firstOperation = false;
+    }
+    numberButtons.forEach(number =>
+        number.addEventListener('click', addListenerSecond));
+
+    equals.addEventListener('click', () => {
+        result = (operate(divide, firstNumber, secondNumber)).toString();
+        resultDisplay.textContent = result;
+    });
+
+    if (secondNumber != '') {
+        secondNumber = '';
+        firstNumber = result;
+    }
+
+});
+
+multiplier.addEventListener('click', () => {
+    removeListenerFirst();
+    numberDisplay.textContent += ' * ';
+    if (firstOperation === false) {
+        firstNumber = result;
+    } else {
+        firstOperation = false;
+    }
+    numberButtons.forEach(number =>
+        number.addEventListener('click', addListenerSecond));
+
+    equals.addEventListener('click', () => {
+        result = (operate(multiply, firstNumber, secondNumber)).toString();
+        resultDisplay.textContent = result;
+    });
+
+    if (secondNumber != '') {
+        secondNumber = '';
+        firstNumber = result;
+    }
+
+});
+
 clear.addEventListener('click', () => {
     removeListenerSecond();
     numberDisplay.textContent = '\u00A0';
@@ -106,7 +152,3 @@ clear.addEventListener('click', () => {
     numberButtons.forEach(number =>
         number.addEventListener('click', addListenerFirst));
 });
-
-
-
-    // cuando resto, y sumo despues
