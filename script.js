@@ -1,10 +1,10 @@
-const add = ((a, b) => parseInt(a) + parseInt(b));
+const add = ((a, b) => parseFloat(a) + parseFloat(b));
 
-const subtract = ((a, b) => parseInt(a) - parseInt(b));
+const subtract = ((a, b) => parseFloat(a) - parseFloat(b));
 
-const multiply = ((a, b) => parseInt(a) * parseInt(b));
+const multiply = ((a, b) => parseFloat(a) * parseFloat(b));
 
-const divide = ((a, b) => parseInt(a) / parseInt(b));
+const divide = ((a, b) => parseFloat(a) / parseFloat(b));
 
 const operate = ((operator, a, b) => operator(a, b));
 
@@ -28,7 +28,6 @@ let firstOperation = true;
 
 numberButtons.forEach(number =>
     number.addEventListener('click', addListenerFirst));
-
 
 function addListenerFirst(e) {
     firstNumber += e.target.textContent;
@@ -58,6 +57,7 @@ plus.addEventListener('click', () => {
     } else {
         firstOperation = false;
     }
+
     numberButtons.forEach(number =>
         number.addEventListener('click', addListenerSecond));
 
@@ -65,6 +65,7 @@ plus.addEventListener('click', () => {
     equals.addEventListener('click', () => {
         result = (operate(add, firstNumber, secondNumber)).toString();
         resultDisplay.textContent = result;
+        removeListenerSecond();
     });
 
     if (secondNumber != '') {
@@ -143,12 +144,19 @@ multiplier.addEventListener('click', () => {
 
 });
 
+point.addEventListener('click', () => {
+    numberDisplay.textContent += '.';
+    if (secondNumber === ''){
+        firstNumber += '.';
+    } else {
+        secondNumber += '.';
+    }
+})
+
 clear.addEventListener('click', () => {
     removeListenerSecond();
     numberDisplay.textContent = '\u00A0';
     resultDisplay.textContent = '0';
     firstNumber = '';
     secondNumber = '';
-    numberButtons.forEach(number =>
-        number.addEventListener('click', addListenerFirst));
 });
