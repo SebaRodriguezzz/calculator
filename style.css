@@ -37,11 +37,19 @@ body {
 #display .numbers{
     margin: 0px 10px 0px 0px;
     font-size: 24px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    max-width: 290px;
 }
 
 #display .result {
     margin: -8px 10px 0px 0px;
     font-size: 48px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    max-width: 290px;
 }
 
 .buttons{
@@ -71,6 +79,7 @@ body {
     background-color: rgb(100, 100, 100);
     color: rgb(230, 230, 230);
     font-size: 28px;
+    font-weight: 600;
     border-radius: 20px;
     border: 0px;
     box-shadow: 48px -52px 54px -89px rgba(0,0,0,0.75) inset;
